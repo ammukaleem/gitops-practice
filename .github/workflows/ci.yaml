@@ -36,13 +36,13 @@ jobs:
 
       - name: Update image in deployment manifest
         run: |
-          IMAGE_TAG=${{ secrets.DOCKER_USERNAME }}/dockaleem:${{ TAG }}
+          IMAGE=${{ secrets.DOCKER_USERNAME }}/dockaleem
+          TAG=latest  # Define the tag explicitly
+  
+          echo "Using image: $IMAGE with tag: $TAG"
           cd saijava-gitops
           ls -lrt
-          echo $IMAGE:$TAG
           sed -i "s|image: .*|image: $IMAGE:$TAG|g" ./tomapp-dep.yaml
-          git config --global user.email ${{ vars.GIT_EMAIL }}
-          git config --global user.name ${{ vars.GIT_USERNAME }}
           git add .
           git commit -m "Update image to $IMAGE:$TAG"
           git push origin main    
