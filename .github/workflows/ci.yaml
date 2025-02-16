@@ -22,4 +22,29 @@ jobs:
       - name: Pull Docker Image
         run: docker pull dockaleem/tomcat-app:latest  
       
+      - name: push the image to saijava-gitops
+  update-saijava-gitops:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout config repo
+        uses: actions/checkout@v4
+        with:
+          repository: ammukaleem/saijava-gitops.git
+          token: ${{ secrets.GITOPS_TOKEN }}
+          path: saijava-gitops
+          ref: main
+
+      - name: Update image in deployment manifest
+        run: |
+          IMAGE_TAG=${{ secrets.DOCKER_USERNAME }}/dockaleem:${{ TAG }}
+          cd saijava-gitops
+          ls -lrt
+          echo $IMAGE:$TAG
+          sed -i "s|image: .*|image: $IMAGE:$TAG|g" ./tomapp-dep.yaml
+          git config --global user.email ${{ vars.GIT_EMAIL }}
+          git config --global user.name ${{ vars.GIT_USERNAME }}
+          git add .
+          git commit -m "Update image to $IMAGE:$TAG"
+          git push origin main    
 
