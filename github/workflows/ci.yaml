@@ -52,4 +52,4 @@ jobs:
           git add .
           git commit -m "Update image to $IMAGE:$TAG"
           git push origin main  
-          ##        
+                  
