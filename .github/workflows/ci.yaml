@@ -9,7 +9,7 @@ permissions:
   contents: write  # Correct indentation
 
 jobs:
-  Checkout-The code:
+  Checkout_The code:
     runs-on: ubuntu-latest
     env:
       COMMIT_SHA: ${{ github.sha }}
