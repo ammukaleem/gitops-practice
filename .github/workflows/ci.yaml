@@ -35,7 +35,7 @@ jobs:
 
       - name: Update image in deployment manifest
         run: |
-          IMAGE=${{ secrets.DOCKER_USERNAME }}
+          IMAGE=dockaleem/tomcat-app
           TAG=latest  # Define the tag explicitly
   
           echo "Using image: $IMAGE with tag: $TAG"
@@ -45,6 +45,6 @@ jobs:
           git config --global user.name "${{ vars.GIT_USERNAME }}"
           git config --global user.email "${{vars.GIT_EMAIL }}"
           git add .
-          git commit -m "Fix: Ensure image is dockaleem/tomcat-app:latest"
+          git commit -m "Fix: image is $IMAGE:$TAG"
           git push origin main    
 
