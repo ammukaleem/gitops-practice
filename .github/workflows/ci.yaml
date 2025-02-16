@@ -35,7 +35,7 @@ jobs:
 
       - name: Update image in deployment manifest
         run: |
-          IMAGE=${{ secrets.DOCKER_USERNAME }}/dockaleem
+          IMAGE=${{ secrets.DOCKER_USERNAME }}
           TAG=latest  # Define the tag explicitly
   
           echo "Using image: $IMAGE with tag: $TAG"
