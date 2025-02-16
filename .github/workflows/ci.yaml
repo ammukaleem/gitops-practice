@@ -42,6 +42,8 @@ jobs:
           cd saijava-gitops
           ls -lrt
           sed -i "s|image: .*|image: $IMAGE:$TAG|g" ./tomapp-dep.yaml
+          git config --global user.email "${{ vars.GIT_EMAIL }}"
+          git config --global user.name "${{ vars.GIT_USERNAME }}"
           git add .
           git commit -m "Update image to $IMAGE:$TAG"
           git push origin main    
