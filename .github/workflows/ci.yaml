@@ -37,7 +37,7 @@ jobs:
         run: |
         
           IMAGE=dockaleem/tomcat-app
-          VERSION="v1.0-${GITHUB_RUN_NUMBER}"
+          VERSION="v1.0-${github.run_id}"
   
           echo "Using image: $IMAGE with tag: $VERSION"
           cd saijava-gitops
