@@ -35,9 +35,9 @@ jobs:
 
       - name: Update image in deployment manifest
         run: |
-        env:
+        
           IMAGE=dockaleem/tomcat-app
-          VERSION = "v1.0-${BUILD_NUMBER}"
+          VERSION="v1.0-${BUILD_NUMBER}"
   
           echo "Using image: $IMAGE with tag: $VERSION"
           cd saijava-gitops
