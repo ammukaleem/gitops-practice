@@ -42,7 +42,7 @@ jobs:
           echo "Using image: $IMAGE with tag: $VERSION"
           cd saijava-gitops
           ls -lrt
-          sed -i "s|image: .*|image: $IMAGE:VERSION|g" ./tomapp-dep.yaml
+          sed -i "s|image: .*|image: $IMAGE:$VERSION|g" ./tomapp-dep.yaml
           git config --global user.name "${{ vars.GIT_USERNAME }}"
           git config --global user.email "${{vars.GIT_EMAIL }}"
           git add .
