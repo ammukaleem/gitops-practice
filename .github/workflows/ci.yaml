@@ -47,5 +47,5 @@ jobs:
           git add .
           git commit -m "Fix: image is $IMAGE:$VERSION"
           git push origin main    
-          #
+          ##
 
