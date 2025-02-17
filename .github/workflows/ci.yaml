@@ -36,7 +36,7 @@ jobs:
       - name: Update image in deployment manifest
         run: |
           IMAGE=dockaleem/tomcat-app
-          TAG=latest  # Define the tag explicitly
+          VERSION = "v1.0-${BUILD_NUMBER}"
   
           echo "Using image: $IMAGE with tag: $VERSION"
           cd saijava-gitops
@@ -48,5 +48,5 @@ jobs:
           git add .
           git commit -m "Fix: image is $IMAGE:$VERSION"
           git push origin main    
-          ##
+          
 
