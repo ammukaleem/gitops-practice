@@ -20,7 +20,7 @@ jobs:
            token: ${{ secrets.GITOPS_TOKEN }}
            path: gitops-practice
            ref: main
-  Build:
+  Build-jenkins-warfile:
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.JENKINS_USER }}
           api_token: ${{ secrets.JENKINS_TOKEN }}
           timeout: "1000"   
-  Pull image from Dockerhub:
+  Pull-image-from-Dockerhub:
     name: pull
     runs-on: ubuntu-latest
     steps:
