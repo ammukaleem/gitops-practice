@@ -20,7 +20,7 @@ jobs:
            token: ${{ secrets.GITOPS_TOKEN }}
            path: gitops-practice
            ref: main
-  Build & Run the code in jenkins:
+  Build:
     name: Build
     runs-on: ubuntu-latest
     steps:
