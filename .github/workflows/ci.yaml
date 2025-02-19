@@ -31,7 +31,10 @@ jobs:
           job_name: new-pipeline
           username: ${{ secrets.JENKINS_USER }}
           api_token: ${{ secrets.JENKINS_TOKEN }}
-          timeout: "1000"   
+          timeout: "1000" 
+          start_timeout: 600
+          interval: 5
+          verbose: true 
   Pull-image-from-Dockerhub:
     name: pull
     runs-on: ubuntu-latest
