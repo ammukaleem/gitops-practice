@@ -10,7 +10,7 @@ permissions:
 
 jobs:
 
-  checkout code:
+  checkout-code:
     runs-on: ubuntu-latest
     steps:
        - name: Checkout Code
