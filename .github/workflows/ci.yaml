@@ -27,11 +27,11 @@ jobs:
       - name: Trigger jenkins job
         uses: GoldenspearLLC/build-jenkins-job@master
         with:
-          url: http://192.168.56.10:8081/
+          jenkins-url: ${{ secrets.JENKINS_URL }}
           job_name: new-pipeline
           username: ${{ secrets.JENKINS_USER }}
           api_token: ${{ secrets.JENKINS_TOKEN }}
-          jenkins-crumb: $ {{ JENKINS_CRUMB }}
+          #jenkins-crumb: $ {{ JENKINS_CRUMB }}
           timeout: "1000" 
            
   Pull-image-from-Dockerhub:
