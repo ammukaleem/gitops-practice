@@ -28,11 +28,12 @@ jobs:
         uses: GoldenspearLLC/build-jenkins-job@master
         with:
           jenkins-url: ${{ secrets.JENKINS_URL }}
-          job_name: new-pipeline
-          username: ${{ secrets.JENKINS_USER }}
-          api_token: ${{ secrets.JENKINS_TOKEN }}
-          #jenkins-crumb: $ {{ JENKINS_CRUMB }}
-          timeout: "1000" 
+          jenkins-token: ${{ secrets.JENKINS_TOKEN }}
+          user: "admin"
+          job-path: "new-pipeline"
+          #job-params: "{'param1': 'value1', 'param2': 'value2'}"
+      - name: Get job status
+        run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"
            
   Pull-image-from-Dockerhub:
     name: pull
