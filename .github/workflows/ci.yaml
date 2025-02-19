@@ -21,17 +21,17 @@ jobs:
            path: gitops-practice
            ref: main
     Build & Run the code in jenkins:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger jenkins job
-        uses: joshlk/jenkins-githubaction@master
-        with:
-          url: http://192.168.56.10:8081/
-          job_name: new-pipeline
-          username: ${{ secrets.JENKINS_USER }}
-          api_token: ${{ secrets.JENKINS_TOKEN }}
-          timeout: "1000"   
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Trigger jenkins job
+          uses: joshlk/jenkins-githubaction@master
+          with:
+            url: http://192.168.56.10:8081/
+            job_name: new-pipeline
+            username: ${{ secrets.JENKINS_USER }}
+            api_token: ${{ secrets.JENKINS_TOKEN }}
+            timeout: "1000"   
     Pull image from Dockerhub:
     name: pull
     runs-on: ubuntu-latest
