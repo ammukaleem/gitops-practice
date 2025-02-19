@@ -25,16 +25,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger jenkins job
-        uses: joshlk/jenkins-githubaction@master
+        uses: GoldenspearLLC/build-jenkins-job@master
         with:
           url: http://192.168.56.10:8081/
           job_name: new-pipeline
           username: ${{ secrets.JENKINS_USER }}
           api_token: ${{ secrets.JENKINS_TOKEN }}
+          jenkins-crumb: $ {{ JENKINS_CRUMB }}
           timeout: "1000" 
-          start_timeout: 600
-          interval: 5
-          verbose: true 
+           
   Pull-image-from-Dockerhub:
     name: pull
     runs-on: ubuntu-latest
