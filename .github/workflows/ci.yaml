@@ -20,8 +20,11 @@ jobs:
            token: ${{ secrets.GITOPS_TOKEN }}
            path: gitops-practice
            ref: main
-       - name: CD into directory
-         run: cd gitops-practice    
+       - name: Debug Directory
+         run: |
+           pwd
+           ls -l
+         working-directory: gitops-practice     
        - name: Maven Test
          run: mvn test
            
