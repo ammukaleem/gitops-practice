@@ -27,10 +27,10 @@ jobs:
       - name: Trigger Jenkins Job
         uses: jabbukka/jenkins-trigger@main
         with:
-          url: ${{ JENKINS_URL }}
+          url: ${{ secrets.JENKINS_URL }}
           job_name: "new-pipeline"
-          user_name: ${{ JENKINS_USER }}
-          api_token: ${{ JENKINS_TOKEN }}
+          user_name: ${{ secrets.JENKINS_USER }}
+          api_token: ${{ secrets.JENKINS_TOKEN }}
           wait: true
           timeout: 1000
 
