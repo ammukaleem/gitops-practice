@@ -28,8 +28,6 @@ jobs:
         jenkins_token: ${{ secrets.JENKINS_TOKEN }}
         jenkins_user: ${{ secrets.JENKINS_USER }}
       #job_params: "{"foo": "bar", "baz": true, "qux": 3}"
-
-      - run: echo "Result: ${{ steps.build.outputs.build_result }}"
       - name: Get job status
         run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"
            
