@@ -20,12 +20,8 @@ jobs:
            token: ${{ secrets.GITOPS_TOKEN }}
            path: gitops-practice
            ref: main
-  Build-jenkins-warfile:
-    runs-on: ubuntu-latest
-    needs: checkout-code
-    steps:
-      - name: Maven Test
-        run: mvn test
+       - name: Maven Test
+         run: mvn test
            
   Pull-image-from-Dockerhub:
     name: pull
