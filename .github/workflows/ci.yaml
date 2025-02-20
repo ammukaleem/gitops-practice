@@ -25,7 +25,7 @@ jobs:
     needs: checkout-code
     steps:
       - name: Trigger Jenkins Job
-        uses: HoldenLucas/build-jenkins-job@v1
+        uses: HoldenLucas/build-jenkins-job@v0.1
         id: build
         with:
           job_url: ${{ secrets.JENKINS_URL }}/job/new-pipeline/
