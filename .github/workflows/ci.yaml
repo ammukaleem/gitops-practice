@@ -21,15 +21,19 @@ jobs:
            path: gitops-practice
            ref: main
   Build-jenkins-warfile:
-      - uses: HoldenLucas/build-jenkins-job@v1
+    runs-on: ubuntu-latest
+    needs: checkout-code
+    steps:
+      - name: Trigger Jenkins Job
+        uses: HoldenLucas/build-jenkins-job@v1
         id: build
         with:
-        job_url: ${{ secrets.JENKINS_URL }}/job/new-pipeline/
-        jenkins_token: ${{ secrets.JENKINS_TOKEN }}
-        jenkins_user: ${{ secrets.JENKINS_USER }}
-      #job_params: "{"foo": "bar", "baz": true, "qux": 3}"
+          job_url: ${{ secrets.JENKINS_URL }}/job/new-pipeline/
+          jenkins_token: ${{ secrets.JENKINS_TOKEN }}
+          jenkins_user: ${{ secrets.JENKINS_USER }}
+
       - name: Get job status
-        run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"
+        run: echo "Job status is ${{ steps.build.outputs.job_status }}"
            
   Pull-image-from-Dockerhub:
     name: pull
