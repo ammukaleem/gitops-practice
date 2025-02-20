@@ -21,17 +21,15 @@ jobs:
            path: gitops-practice
            ref: main
   Build-jenkins-warfile:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger jenkins job
-        uses: GoldenspearLLC/build-jenkins-job@master
+      - uses: HoldenLucas/build-jenkins-job@v1
+        id: build
         with:
-          jenkins-url: ${{ secrets.JENKINS_URL }}
-          jenkins-token: ${{ secrets.JENKINS_TOKEN }}
-          user: "admin"
-          job-path: "new-pipeline"
-          #job-params: "{'param1': 'value1', 'param2': 'value2'}"
+        job_url: ${{ secrets.JENKINS_URL }}/job/new-pipeline/
+        jenkins_token: ${{ secrets.JENKINS_TOKEN }}
+        jenkins_user: ${{ secrets.JENKINS_USER }}
+      #job_params: "{"foo": "bar", "baz": true, "qux": 3}"
+
+      - run: echo "Result: ${{ steps.build.outputs.build_result }}"
       - name: Get job status
         run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"
            
