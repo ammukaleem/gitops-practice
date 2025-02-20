@@ -24,10 +24,10 @@ jobs:
          run: |
            pwd
            ls -l
-         working-directory: ../   
+         working-directory: gitops-practice 
        - name: Maven Test
          run: mvn test
-         working-directory: ../
+         working-directory: gitops-practice
            
   Pull-image-from-Dockerhub:
     name: pull
