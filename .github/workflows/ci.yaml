@@ -33,11 +33,6 @@ jobs:
        - name: Maven Test
          run: mvn clean package
          working-directory: gitops-practice
-       - name: copy files
-         run: | 
-    
-           cp -r /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp*.war /target/webapp.war
-  
- 
+       
           
 
