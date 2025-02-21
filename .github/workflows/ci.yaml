@@ -36,7 +36,7 @@ jobs:
        - name: copy files
          run: | 
     
-           cp /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp*.war /target/webapp.war
+           cp -r /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp*.war /target/webapp.war
   
  
           
