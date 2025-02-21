@@ -30,9 +30,10 @@ jobs:
            pwd
            ls -l
          working-directory: gitops-practice 
-       - name: Maven Test
-         run: mvn clean package
-         working-directory: gitops-practice
+       - name: Build with Maven
+         run: |
+          cd $GITHUB_WORKSPACE/gitops-practice/webapp
+          mvn clean package
        
           
 
