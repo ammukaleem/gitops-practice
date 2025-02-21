@@ -31,10 +31,10 @@ jobs:
            ls -l
          working-directory: gitops-practice 
        - name: Maven Test
-         run: mvn install
+         run: mvn package
          working-directory: gitops-practice
-       - name: copy to target
-         run: cp  /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp-1.0-SNAPSHOT.war /gitops-practice/webapp/target/ 
+     #  - name: copy to target
+     #    run: cp  /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp-1.0-SNAPSHOT.war /gitops-practice/webapp/target/ 
   
  
           
