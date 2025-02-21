@@ -3,6 +3,7 @@ name: JavaApp Tomcat-jenkins-Docker-kubernates CI/CD
 env:
   IMAGE: dockaleem/tomcat-app
   VERSION: "v1.0-${GITHUB_RUN_ID}"
+  TOMCAT_HOME: /usr/local/tomcat
 
 on:
   push:
@@ -37,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: copy war file from current directory to tomacat
-      run: cp -R ./ /usr/local/tomcat/webapps
+      run: cp -R ./ $TOMCAT_HOME/webapps
 
     - name: build Docker image
       run: docker build -t ${IMAGE}:${VERSION} .
