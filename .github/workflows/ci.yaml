@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: copy war file from current directory to tomacat
-      run: cp ./ /usr/local/tomcat/webapps
+      run: cp -R ./ /usr/local/tomcat/webapps
 
     - name: build Docker image
       run: docker build -t ${IMAGE}:${VERSION} .
