@@ -36,12 +36,10 @@ jobs:
   
   Build-Docker-Image:
     runs-on: ubuntu-latest
-    steps:
-    - name: copy war file from current directory to tomacat
-      run: sudo cp -R ./*.war $TOMCAT_HOME/webapps
-
-    - name: build Docker image
-      run: docker build -t ${IMAGE}:${VERSION} .
+    run: |
+      sudo mkdir -p $TOMCAT_HOME/webapps
+      sudo cp -R gitops-practice/target/*.war $TOMCAT_HOME/webapps/
+      docker build -t ${IMAGE}:${VERSION} .
   
   Push-Docker-image-to-Dockerhub:
     name: push
