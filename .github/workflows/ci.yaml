@@ -1,8 +1,8 @@
 name: JavaApp Tomcat-jenkins-Docker-kubernates CI/CD
 
 env:
-  IMAGE=dockaleem/tomcat-app
-  VERSION="v1.0-${GITHUB_RUN_ID}"
+  IMAGE = dockaleem/tomcat-app
+  VERSION = "v1.0-${GITHUB_RUN_ID}"
 
 on:
   push:
