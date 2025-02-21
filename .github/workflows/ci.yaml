@@ -31,7 +31,7 @@ jobs:
            ls -l
          working-directory: gitops-practice 
        - name: Maven Test
-         run: mvn clean package -X
+         run: mvn clean package 
          working-directory: gitops-practice
   
  
