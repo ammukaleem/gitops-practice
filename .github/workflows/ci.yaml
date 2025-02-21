@@ -36,11 +36,21 @@ jobs:
   
   Build-Docker-Image:
     runs-on: ubuntu-latest
-    run: |
-      sudo mkdir -p $TOMCAT_HOME/webapps
-      sudo cp -R gitops-practice/target/*.war $TOMCAT_HOME/webapps/
-      docker build -t ${IMAGE}:${VERSION} .
-  
+    needs: checkout-code
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          repository: ammukaleem/gitops-practice
+          token: ${{ secrets.GITOPS_TOKEN }}
+          path: gitops-practice
+          ref: main
+
+      - name: Copy WAR file to Tomcat webapps
+        run: |
+          sudo mkdir -p $TOMCAT_HOME/webapps
+          sudo cp -R gitops-practice/*.war $TOMCAT_HOME/webapps/
+        
   Push-Docker-image-to-Dockerhub:
     name: push
     runs-on: ubuntu-latest
