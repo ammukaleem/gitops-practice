@@ -30,10 +30,16 @@ jobs:
            pwd
            ls -l
          working-directory: gitops-practice 
-       - name: Build with Maven
-         run: |
-          cd $GITHUB_WORKSPACE/gitops-practice/webapp
-          mvn clean package
+       - name: Set Up Java
+         uses: actions/setup-java@v4
+         with:
+           java-version: '17'
+           distribution: 'temurin'
+
+       - name: Build WAR File with Maven
+         run: mvn --batch-mode --update-snapshots clean package
+         working-directory: gitops-practice
+
        
           
 
