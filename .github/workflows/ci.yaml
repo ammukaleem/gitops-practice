@@ -1,5 +1,9 @@
 name: JavaApp Tomcat-jenkins-Docker-kubernates CI/CD
 
+env:
+  IMAGE=dockaleem/tomcat-app
+  VERSION="v1.0-${GITHUB_RUN_ID}"
+
 on:
   push:
     branches: [main]
@@ -28,6 +32,26 @@ jobs:
        - name: Maven Test
          run: mvn test
          working-directory: gitops-practice
+  
+  Build-Docker-Image:
+    runs-on: ubuntu-latest
+    steps:
+    - name: copy war file from current directory to tomacat
+      run: cp ./ /usr/local/tomcat/webapps
+
+    - name: build Docker image
+      run: docker build -t ${IMAGE}:${VERSION} .
+  
+  Push-Docker-image-to-Dockerhub:
+    name: push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Push Docker Image
+        run: docker push ${IMAGE}:${VERSION}  
+
            
   Pull-image-from-Dockerhub:
     name: pull
