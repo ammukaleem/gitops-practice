@@ -35,8 +35,8 @@ jobs:
          working-directory: gitops-practice
        - nmae: copy files
          run: | 
-         mkdir -p /gitops-practice/webapp/target/
-         cp /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp*.war /gitops-practice/webapp/target/webapp.war
+           mkdir -p /gitops-practice/webapp/target/
+           cp /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp*.war /gitops-practice/webapp/target/webapp.war
   
  
           
