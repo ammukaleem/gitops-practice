@@ -33,8 +33,10 @@ jobs:
        - name: Maven Test
          run: mvn clean package
          working-directory: gitops-practice
-       - name: copy to target
-         run: cp  /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp-1.0-SNAPSHOT.war gitops-practice/webapp/target/ 
+       - nmae: copy files
+         run: | 
+         mkdir -p /gitops-practice/webapp/target/
+         cp /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp*.war /gitops-practice/webapp/target/webapp.war
   
  
           
