@@ -34,7 +34,7 @@ jobs:
          run: mvn install
          working-directory: gitops-practice
        - name: copy to target
-         run: cp  /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp-1.0-SNAPSHOT.war ./webapp/target/ 
+         run: cp  /home/runner/work/gitops-practice/gitops-practice/gitops-practice/webapp/target/webapp-1.0-SNAPSHOT.war /gitops-practice/webapp/target/ 
   
  
           
