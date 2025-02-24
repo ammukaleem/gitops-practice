@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Correct indentation
+  contents: write  
 
 jobs:
 
