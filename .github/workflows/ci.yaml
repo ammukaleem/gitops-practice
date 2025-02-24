@@ -30,14 +30,8 @@ jobs:
            pwd
            ls -l
          working-directory: gitops-practice 
-       - name: Set Up Java
-         uses: actions/setup-java@v4
-         with:
-           java-version: '17'
-           distribution: 'temurin'
-
        - name: Build WAR File with Maven
-         run: mvn --batch-mode --update-snapshots clean package
+         run: mvn clean package
          working-directory: gitops-practice
 
        
