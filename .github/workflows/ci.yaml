@@ -32,7 +32,7 @@ jobs:
          working-directory: gitops-practice 
        - name: Build WAR File with Maven
          run: mvn clean package
-         working-directory: ../../gitops-practice/webapp
+         working-directory: gitops-practice/webapp
        - name: Check for WAR file
          run: |
            ls -l 
