@@ -33,6 +33,11 @@ jobs:
        - name: Build WAR File with Maven
          run: mvn clean package
          working-directory: gitops-practice
+       - name: Upload WAR file
+         uses: actions/upload-artifact@v2
+         with:
+           name: webapp-war
+           path: webapp/target/webapp-1.0-SNAPSHOT.war
 
        
           
