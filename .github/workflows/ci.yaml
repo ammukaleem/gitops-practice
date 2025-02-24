@@ -32,10 +32,10 @@ jobs:
          working-directory: gitops-practice 
        - name: Build WAR File with Maven
          run: mvn clean package
-         working-directory: gitops-practice
+         working-directory: gitops-practice/webapp
        - name: Check for WAR file
          run: |
-           ls -l webapp/target/
+           ls -l 
          working-directory: gitops-practice
        - name: Upload WAR file
          uses: actions/upload-artifact@v4
