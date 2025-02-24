@@ -28,14 +28,14 @@ jobs:
        - name: Debug Directory
          run: |
            pwd
-           ll
+           ls
          working-directory: gitops-practice 
        - name: Build WAR File with Maven
          run: mvn clean package
          working-directory: gitops-practice/webapp
        - name: Check for WAR file
          run: |
-           ll
+           ls
          working-directory: gitops-practice
        - name: Upload WAR file
          uses: actions/upload-artifact@v4
