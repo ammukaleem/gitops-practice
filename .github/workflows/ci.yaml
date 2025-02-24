@@ -28,7 +28,7 @@ jobs:
        - name: Debug Directory
          run: |
            pwd
-           ls -l
+           ls -R
          working-directory: gitops-practice 
        - name: Build WAR File with Maven
          run: mvn clean package
